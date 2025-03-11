@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #7aa9d4;
+    color: rgb(227, 230, 232);
+    text-decoration: none;
+}
+
+.left-nav span,a {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(66, 114, 176);
+    text-decoration: none;
+}
+
+.right-nav a {
+    margin-left: 20px;
+    color: rgb(66, 114, 176);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.right-nav a:hover {
+    text-decoration: none;
+    color: rgb(149, 188, 222);
+}
