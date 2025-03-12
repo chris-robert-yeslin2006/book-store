@@ -9,7 +9,11 @@ function Navbar() {
             <Link to='/'><span>Book Store</span></Link>
         </div>
         <div className='right-nav'>
+
             <Link to='/books'>books</Link>
+            <Link to='/addbooks' >Add Books</Link>
+            <Link to='/addstudent'>Add student</Link>
+            <Link to='/dashboard'>dashboard</Link>
             <Link to='/login'>login</Link>
         </div>
     </nav>
