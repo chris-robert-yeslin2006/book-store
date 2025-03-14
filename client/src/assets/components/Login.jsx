@@ -19,7 +19,7 @@ function Login() {
       if(res.data.login && res.data.role === 'admin'){
         navigate('/dashboard')
       } else if(res.data.login && res.data.role === 'student'){
-        navigate('/student')
+        navigate('/')
       } else {
         console.log('Login failed')
       }

@@ -1,5 +1,6 @@
 import express from 'express';
 import Admin from '../Models/Admin.js';
+import Student from '../Models/Student.js';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
@@ -28,6 +29,23 @@ router.post('/login', async (req, res) => {
         }
     }
     else if(role=='student'){
+
+        const student = await Student.findOne({ username });
+        if (student) {
+            const isMatch = await bcrypt.compare(password, student.password);
+            if (isMatch) {
+                const token = jwt.sign({ username:student.username,role:'student' }, process.env.STD_SECRET, {
+                    expiresIn: '1h'
+                });
+                res.cookie('token', token, { httpOnly: true ,secure :true });
+                // res.status(200).json({ token });
+                return res.json({login:true , role:'student'});
+            } else {
+                res.status(401).json({ message: 'Invalid username or password' });
+            }
+        } else {
+            res.status(404).json({ message: 'student not registered' });
+        }
 
     }
     else{
