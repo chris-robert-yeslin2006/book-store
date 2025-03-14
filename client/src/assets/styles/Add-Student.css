@@ -1,0 +1,67 @@
+.add-student-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6; /* Tailwind gray-100 */
+  }
+  
+  .add-student-container {
+    background-color: #ffffff;
+    padding: 40px 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .add-student-container h1 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    text-align: center;
+    color: #111827; /* Tailwind gray-900 */
+  }
+  
+  .add-student-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .add-student-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151; /* Tailwind gray-700 */
+  }
+  
+  .add-student-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db; /* Tailwind gray-300 */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+  }
+  
+  .add-student-input:focus {
+    border-color: #3b82f6; /* Tailwind blue-500 */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  .add-student-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    background-color: #3b82f6;
+    color: #ffffff;
+  }
+  
+  .add-student-btn:hover {
+    background-color: #2563eb;
+  }
+  

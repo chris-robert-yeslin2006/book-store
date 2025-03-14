@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import {Connection} from './db.js'
 
 import { adminRouter } from './routes/auth.js';
+import { studentRouter } from './routes/student.js';
 
 dotenv.config();
 Connection();
@@ -20,6 +21,7 @@ app.use(cors(
 ));
 
 app.use('/auth', adminRouter);
+app.use('/student', studentRouter);
 
 
 
