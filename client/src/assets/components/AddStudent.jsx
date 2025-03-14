@@ -29,6 +29,7 @@ function AddStudent() {
           if(res.data.registered){
             navigate('/dashboard')
           }
+          console.log(res)
         })
       }
 
