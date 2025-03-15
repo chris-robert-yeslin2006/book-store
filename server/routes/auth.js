@@ -46,6 +46,7 @@ router.post('/login', async (req, res) => {
         } else {
             res.status(404).json({ message: 'student not registered' });
         }
+        
 
     }
     else{
@@ -69,5 +70,41 @@ const verifyAdmin = async (req, res, next) => {
         res.status(401).json({ message: 'No token provided' });
     }
 };
+
+const verifyUser = async (req, res, next) => {
+    const token = req.cookies.token;
+    if (token) {
+        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+            if (err) {
+                jwt.verify(token, process.env.STD_SECRET, (err, decoded) => {
+                    if (err) {
+                        res.status(401).json({ message: 'Invalid User' });
+                    } else {
+                        req.username = decoded.username;
+                        req.role = decoded.role;
+                        next();
+                    }
+                });
+            } else {
+                req.username = decoded.username;
+                req.role = decoded.role;
+                next();
+            }
+        });
+    } else {
+        res.status(401).json({ message: 'No token provided' });
+    }
+};
+
+
+router.get('/verify',verifyUser, (req, res) => {
+    return res.json({login:true,role:req.role})
+})
+
+router.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    // res.redirect('/');
+    return res.json({logout:true});
+});
 
 export { router as adminRouter, verifyAdmin };

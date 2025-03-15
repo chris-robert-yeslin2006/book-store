@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { use } from 'react'
 import '../styles/Home.css'
-
-function Home() {
+import  axios from 'axios'
+import { useEffect } from 'react'
+function Home({setRole}) {
+  axios.defaults.withCredentials=true
+  useEffect(()=>{
+    axios.get('http://localhost:3001/auth/verify')
+    .then(res => {
+      console.log(res)
+      if(res.data.login){
+        setRole(res.data.role)
+      
+      } else {
+        setRole('')
+      }
+    },[])
+    .catch(err => {
+      console.log(err)
+    })
+  })
   return (
     <div className='hero'>
         <div className='hero-content'>
