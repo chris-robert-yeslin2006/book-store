@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import BookCard from './BookCard'
 import '../styles/Books.css'
 
-function Books() {
+function Books({role}) {
   const [books, setBooks] = useState([])  
   useEffect(() => {
     axios.get('http://localhost:3001/book/books')
@@ -22,7 +22,7 @@ function Books() {
     <div className='books-page'>
       {
         books.map(book => {
-          return <BookCard key={book._id} book={book} />
+          return <BookCard role={role} key={book._id} book={book} />
         })
       }
     </div>

@@ -78,7 +78,7 @@ function Login({ setRole: setAppRole }) {
         console.log(res)
         if (res.data.login && res.data.role === 'admin') {
           setAppRole('admin') // Update global role
-          navigate('/dashboard')
+          navigate('/books')
         } else if (res.data.login && res.data.role === 'student') {
           setAppRole('student') // Update global role
           navigate('/')

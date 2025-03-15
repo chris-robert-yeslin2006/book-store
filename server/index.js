@@ -8,6 +8,10 @@ import { adminRouter } from './routes/auth.js';
 import { studentRouter } from './routes/student.js';
 import { bookRouter } from './routes/book.js';
 
+import Book from './Models/Book.js';
+import Admin from './Models/Admin.js';
+import Student from './Models/Student.js';
+
 dotenv.config();
 Connection();
 
@@ -24,6 +28,20 @@ app.use(cors(
 app.use('/auth', adminRouter);
 app.use('/student', studentRouter);
 app.use('/book', bookRouter);
+app.get('/dashboard', async(req,res)=>{
+
+    try{
+      const student=await Student.countDocuments;
+      const admin=await Admin.countDocuments;
+      const book=await Book.countDocuments
+      
+      res.json({ok:true,student,admin,book})
+  }
+    catch(err){
+        console.log(err)
+    }
+
+})
 
 
 
