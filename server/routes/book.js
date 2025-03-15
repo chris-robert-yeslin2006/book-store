@@ -21,6 +21,15 @@ router.post('/add',verifyAdmin, async (req, res) => {
         res.status(500).json({ message: 'Error Registering Book' })
     }
 })
+
+router.get('/books', async (req, res) => {
+    try {
+        const books = await Book.find()
+        res.json(books )
+    } catch (error) {
+        res.status(500).json({ message: 'Error Fetching Books' })
+    }
+})
     
 
 
