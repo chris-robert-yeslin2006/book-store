@@ -6,6 +6,7 @@ import Login from './assets/components/Login';
 import Dashboard from './assets/components/Dashboard';
 import AddStudent from './assets/components/AddStudent';
 import Logout from './assets/components/Logout';
+import AddBooks from './assets/components/AddBooks';
 import React from 'react';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addStudent" element={<AddStudent />} />
         <Route path="/logout" element={<Logout setRole={setRole}  />} />
+        <Route path="/addBooks" element={<AddBooks />} />
       </Routes>
     </BrowserRouter>
   );

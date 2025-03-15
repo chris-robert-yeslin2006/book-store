@@ -6,6 +6,7 @@ import {Connection} from './db.js'
 
 import { adminRouter } from './routes/auth.js';
 import { studentRouter } from './routes/student.js';
+import { bookRouter } from './routes/book.js';
 
 dotenv.config();
 Connection();
@@ -22,6 +23,7 @@ app.use(cors(
 
 app.use('/auth', adminRouter);
 app.use('/student', studentRouter);
+app.use('/book', bookRouter);
 
 
 
