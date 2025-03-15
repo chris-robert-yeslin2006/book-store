@@ -8,6 +8,7 @@ import AddStudent from './assets/components/AddStudent';
 import Logout from './assets/components/Logout';
 import AddBooks from './assets/components/AddBooks';
 import EditBook from './assets/components/EditBook';
+import DeleteBook from './assets/components/DeleteBook';
 import React from 'react';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/logout" element={<Logout setRole={setRole}  />} />
         <Route path="/addBooks" element={<AddBooks />} />
         <Route path="/book/:id" element={<EditBook />} />
+        <Route path="/delete/:id" element={<DeleteBook />} />
       </Routes>
     </BrowserRouter>
   );

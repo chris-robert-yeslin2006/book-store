@@ -49,5 +49,18 @@ router.put('/book/:id', async (req, res) => {
     }
 })
 
+// DELETE a book
+router.delete('/book/:id', verifyAdmin, async (req, res) => {
+    try {
+      await Book.findByIdAndDelete(req.params.id);
+      res.json({ deleted: true });
+    } catch (error) {
+      console.log('Delete error:', error);
+      res.status(500).json({ message: 'Error Deleting Book' });
+    }
+  });
+  
+  
+
 
 export { router as bookRouter }  
