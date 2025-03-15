@@ -73,3 +73,72 @@
     background-color: #005ecb;
   }
   
+  .book-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    width: 260px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease;
+    background-color: #fff;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .book-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .book-details h3 {
+    font-size: 20px;
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .book-details p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .book-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .book-actions button {
+    background-color: #1e90ff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .book-actions button:hover {
+    background-color: #0d75d8;
+  }
+  
+  /* ✅ Styling the Link inside the buttons */
+  .book-actions button a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .book-actions button a:hover {
+    text-decoration: none;
+  }
+  
+  

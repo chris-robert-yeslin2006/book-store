@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function BookCard({book}) {
     const {name,imageURL,author}=book;
@@ -10,8 +11,8 @@ function BookCard({book}) {
             <p>{author}</p>
         </div>
         <div className="book-actions">
-            <button>edit</button>
-            <button>delete</button>
+            <button><Link to={`/book/${book._id}`}>edit</Link></button>
+            <button><Link>delete</Link></button>
         </div>
         
     </div>

@@ -31,6 +31,23 @@ router.get('/books', async (req, res) => {
     }
 })
     
+router.get('/book/:id', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id)
+        res.json(book)
+    } catch (error) {
+        res.status(500).json({ message: 'Error Fetching Book' })
+    }
+})
+
+router.put('/book/:id', async (req, res) => {
+    try {
+        const book = await Book.findByIdAndUpdate(req.params.id, req.body)
+        return res.json({updated:true,book})
+    } catch (error) {
+        res.status(500).json({ message: 'Error Fetching Book' })
+    }
+})
 
 
 export { router as bookRouter }  

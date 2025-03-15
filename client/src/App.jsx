@@ -7,6 +7,7 @@ import Dashboard from './assets/components/Dashboard';
 import AddStudent from './assets/components/AddStudent';
 import Logout from './assets/components/Logout';
 import AddBooks from './assets/components/AddBooks';
+import EditBook from './assets/components/EditBook';
 import React from 'react';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/addStudent" element={<AddStudent />} />
         <Route path="/logout" element={<Logout setRole={setRole}  />} />
         <Route path="/addBooks" element={<AddBooks />} />
+        <Route path="/book/:id" element={<EditBook />} />
       </Routes>
     </BrowserRouter>
   );
