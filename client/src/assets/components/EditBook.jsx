@@ -7,6 +7,7 @@ function EditBooks() {
   const [name, setName] = useState('')
   const [author, setAuthor] = useState('')
   const [imageURL, setImageURL] = useState('')
+  const [description, setDescription] = useState('')
 
   const { id } = useParams()
   const navigate = useNavigate()
@@ -19,17 +20,19 @@ function EditBooks() {
         setName(book.name)
         setAuthor(book.author)
         setImageURL(book.imageURL)
+        setDescription(book.description || '')
       })
       .catch((err) => console.error("Error fetching book:", err))
   }, [id])
 
-  // ✅ Submit updated data (PUT request)
+  // ✅ Submit updated data
   const handleSubmit = (e) => {
     e.preventDefault()
     axios.put(`http://localhost:3001/book/book/${id}`, {
       name,
       author,
-      imageURL
+      imageURL,
+      description
     })
       .then((res) => {
         console.log("Updated:", res.data)
@@ -41,7 +44,7 @@ function EditBooks() {
   return (
     <div className="add-student-page">
       <div className="add-student-container">
-        <h1>Edit Book</h1>
+        <h1 className="add-student-title">Edit Book</h1>
         <form onSubmit={handleSubmit}>
           <div className="add-student-form-group">
             <label>Book Name</label>
@@ -51,8 +54,10 @@ function EditBooks() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Book name"
+              required
             />
           </div>
+
           <div className="add-student-form-group">
             <label>Author</label>
             <input
@@ -61,8 +66,10 @@ function EditBooks() {
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               placeholder="Author"
+              required
             />
           </div>
+
           <div className="add-student-form-group">
             <label>Image URL</label>
             <input
@@ -71,8 +78,22 @@ function EditBooks() {
               value={imageURL}
               onChange={(e) => setImageURL(e.target.value)}
               placeholder="Image URL"
+              required
             />
           </div>
+
+          <div className="add-student-form-group">
+            <label>Description</label>
+            <textarea
+              className="add-student-textarea"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Book description..."
+              rows={5}
+              required
+            />
+          </div>
+
           <button type="submit" className="add-student-btn">Update Book</button>
         </form>
       </div>
