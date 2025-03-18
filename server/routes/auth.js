@@ -54,22 +54,20 @@ router.post('/login', async (req, res) => {
     }
 });
 
-const verifyAdmin = async (req, res, next) => {
-    const token = req.cookies.token;
-    if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-            if (err) {
-                res.status(401).json({ message: 'Invalid token' });
-            } else {
-                req.username = decoded.username;
-                req.role = decoded.role;
-                next();
-            }
-        });
-    } else {
-        res.status(401).json({ message: 'No token provided' });
-    }
-};
+const verifyAdmin = (req, res, next) => {
+    const token = req.cookies.token
+    if (!token) return res.status(401).json({ message: 'No token provided' })
+  
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err || decoded.role !== 'admin') {
+        return res.status(403).json({ message: 'Access denied: not admin' })
+      }
+      req.username = decoded.username
+      req.role = decoded.role
+      next()
+    })
+  }
+  
 
 const verifyUser = async (req, res, next) => {
     const token = req.cookies.token;

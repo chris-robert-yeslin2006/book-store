@@ -28,20 +28,19 @@ app.use(cors(
 app.use('/auth', adminRouter);
 app.use('/student', studentRouter);
 app.use('/book', bookRouter);
-app.get('/dashboard', async(req,res)=>{
+app.get('/dashboard', async (req, res) => {
+  try {
+    const students = await Student.countDocuments();
+    const admins = await Admin.countDocuments();
+    const books = await Book.countDocuments();
 
-    try{
-      const student=await Student.countDocuments;
-      const admin=await Admin.countDocuments;
-      const book=await Book.countDocuments
-      
-      res.json({ok:true,student,admin,book})
+    res.json({ ok: true, students, admins, books });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ ok: false, message: 'Server Error' });
   }
-    catch(err){
-        console.log(err)
-    }
+});
 
-})
 
 
 

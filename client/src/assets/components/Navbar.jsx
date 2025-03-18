@@ -16,7 +16,7 @@ function Navbar({role}) {
             {role === 'admin' && <>
               <Link to='/addbooks' >Add Books</Link>
               <Link to='/addstudent'>Add student</Link>
-              {/* <Link to='/dashboard'>dashboard</Link> */}
+              <Link to='/dashboard'>dashboard</Link>
             </>
             
             }

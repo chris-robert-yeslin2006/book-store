@@ -1,4 +1,3 @@
-// routes/bookRouter.js
 import express from 'express';
 import Book from '../Models/Book.js';
 import { verifyAdmin } from './auth.js';
@@ -29,7 +28,7 @@ router.get('/books', async (req, res) => {
   }
 });
 
-router.get('/book/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
     res.json(book);
@@ -38,7 +37,7 @@ router.get('/book/:id', async (req, res) => {
   }
 });
 
-router.put('/book/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const book = await Book.findByIdAndUpdate(req.params.id, req.body);
     return res.json({ updated: true, book });
@@ -47,7 +46,7 @@ router.put('/book/:id', async (req, res) => {
   }
 });
 
-router.delete('/book/:id', verifyAdmin, async (req, res) => {
+router.delete('/:id', verifyAdmin, async (req, res) => {
   try {
     await Book.findByIdAndDelete(req.params.id);
     res.json({ deleted: true });

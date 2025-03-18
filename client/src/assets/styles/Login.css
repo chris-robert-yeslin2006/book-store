@@ -68,3 +68,24 @@
     background-color: #2563eb; /* Tailwind blue-600 */
   }
   
+  .login-popup {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  
+  .login-popup.success {
+    background-color: #dcfce7; /* Tailwind green-100 */
+    color: #166534; /* Tailwind green-800 */
+    border: 1px solid #22c55e;
+  }
+  
+  .login-popup.error {
+    background-color: #fee2e2; /* Tailwind red-100 */
+    color: #991b1b; /* Tailwind red-800 */
+    border: 1px solid #f87171;
+  }
+  

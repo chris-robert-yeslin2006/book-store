@@ -35,10 +35,10 @@ function Dashboard() {
           <div className="dashboard-label">Total Books</div>
           <div className="dashboard-value">{books}</div>
         </div>
-        <div className="dashboard-row">
+        {/* <div className="dashboard-row">
           <div className="dashboard-label">Total Admins</div>
           <div className="dashboard-value">{admin}</div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

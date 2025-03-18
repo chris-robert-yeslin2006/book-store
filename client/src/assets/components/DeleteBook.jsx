@@ -8,7 +8,7 @@ function DeleteBook() {
 
   useEffect(() => {
     axios
-      .delete(`http://localhost:3001/book/book/${id}`)
+      .delete(`http://localhost:3001/book/${id}`)
       .then((res) => {
         console.log('Deleted response:', res.data);
         if (res.data.deleted) {
@@ -17,7 +17,7 @@ function DeleteBook() {
       })
       .catch((err) => {
         console.error('Error deleting book:', err);
-        navigate('/books'); // fallback in case of error
+        navigate('/books'); // fallback
       });
   }, [id, navigate]);
 
